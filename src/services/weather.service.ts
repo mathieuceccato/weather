@@ -40,8 +40,8 @@ export class WeatherService {
         .do(weather => this._favorites.push(weather));
     }
 
-    public getForecastWithCityName(cityName: string): Observable<Weather[]> {
-        return this.http.get(environment.api + `forecast/daily?cnt=5&q=${cityName}`)
+    public getForecastById(id: number): Observable<Weather[]> {
+        return this.http.get(environment.api + `forecast/daily?cnt=5&id=${id}`)
         .do (res => console.log('res', res))
         .map(res => {
             res.list.map(item => this.extractData(item));

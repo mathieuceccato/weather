@@ -15,11 +15,11 @@ export class ForecastPage {
     constructor(private nav: NavParams,
                 private weatherService: WeatherService) {
         this.currentWeather = this.nav.get('city');
-        this.getForecast(this.currentWeather.city)
+        this.getForecast(this.currentWeather.id)
     }
 
-    private getForecast(cityName: string): void {
-        this.weatherService.getForecastWithCityName(cityName)
+    private getForecast(id: number): void {
+        this.weatherService.getForecastById(id)
             .subscribe(forecast => {
                 console.log('forecast', forecast);
                 this.forecast = forecast;
