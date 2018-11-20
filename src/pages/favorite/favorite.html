@@ -1,0 +1,28 @@
+<ion-content padding>
+    <my-position></my-position>
+
+    <ion-list>
+        <ion-list-header>
+            <span item-start>
+                My favorite cities
+            </span>
+            <span (click)="addCity()" item-end>
+                <ion-icon name="add"></ion-icon>
+            </span>
+        </ion-list-header>
+
+        <ion-item *ngFor="let favorite of favorites"
+                  (click)="showForecast(favorite)">
+            <ion-avatar item-start>
+                <img [src]="favorite.infos.icon">
+            </ion-avatar>
+            <h2>{{ favorite.city }}</h2>
+            <h3>{{ favorite.infos.description }}</h3>
+            <p>{{ favorite.hour }}</p>
+            <ion-note item-end>
+                <h2>{{ favorite.temperature.current }}˚C</h2>
+                <p>{{ favorite.temperature.min }}˚ / {{ favorite.temperature.max }}˚</p>
+            </ion-note>
+        </ion-item>
+    </ion-list>
+</ion-content>

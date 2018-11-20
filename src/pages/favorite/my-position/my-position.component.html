@@ -1,0 +1,25 @@
+<ion-list>
+    <ion-list-header>
+        <span item-start>
+            My position
+        </span>
+        <span (click)="activateLocation()" item-end>
+            <ion-icon name="locate"></ion-icon>
+        </span>
+    </ion-list-header>
+
+    <ion-item *ngIf="weather"
+              (click)="showForecast(weather)">
+        <ion-avatar item-start>
+            <img [src]="weather.infos.icon">
+        </ion-avatar>
+        <h2>{{ weather.city }}</h2>
+        <h3>{{ weather.infos.description }}</h3>
+        <p>{{ weather.hour }}</p>
+        <ion-note item-end>
+            <h2>{{ weather.temperature.current }}˚C</h2>
+            <p>{{ weather.temperature.min }}˚ / {{ weather.temperature.max }}˚</p>
+        </ion-note>
+    </ion-item>
+
+</ion-list>

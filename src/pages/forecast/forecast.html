@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Forecast weather</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+
+    <ion-card>
+        <img src="https://image.freepik.com/free-photo/blue-sky-with-cloud-clean-energy-power-clear-weather-background_43284-844.jpg"/>
+        <div class="card-title">{{ currentWeather.city }}</div>
+        <div class="card-subtitle">{{ currentWeather.infos.description }}</div>
+        <div class="card-degrees">{{ currentWeather.temperature.current }}˚C</div>
+    </ion-card>
+
+    <ion-list no-lines>
+        <ion-item ion-item *ngFor="let item of forecast">
+            <p>{{ item.city }}</p>
+            <img [src]="item.infos.icon">
+            <div class="temperatures">
+                <span>{{ item.temperature.min }}˚C</span>
+                <span>{{ item.temperature.max }}˚C</span>
+            </div>
+        </ion-item>
+    </ion-list>
+
+</ion-content>
