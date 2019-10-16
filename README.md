@@ -1,3 +1,4 @@
 # Weather app with Ionic 3
 
-geolocation only works with Firefox
+App displaying the weather for a given city.
+You can also use the geolocation
